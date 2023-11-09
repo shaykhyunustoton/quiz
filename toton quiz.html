@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            color: #de1e1e;
+        }
+
+        #quiz-form {
+            background-color: #fff;
+       height : 100%vh;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: #24b076;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #results {
+            text-align: center;
+            margin-top: 20px;
+            font-weight: bold;
+            background-color: red;
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Quiz</h1>
+    <form id="quiz-form">
+        <p>1. What is the capital city of Bangladesh?</p>
+        <input type="radio" name="q1" value="a"> a) Dhaka<br>
+        <input type="radio" name="q1" value="b"> b) Chittagong<br>
+        <input type="radio" name="q1" value="c"> c) Rajshahi<br>
+        <br>
+        <p>2. Which river is the longest in Bangladesh?</p>
+        <input type="radio" name="q2" value="a"> a) Padma<br>
+        <input type="radio" name="q2" value="b"> b) Jamuna<br>
+        <input type="radio" name="q2" value="c"> c) Meghna<br>
+        <br>
+        <p>3. What is the official language of Bangladesh?</p>
+        <input type="radio" name="q3" value="a"> a) Bengali (Bangla)<br>
+        <input type="radio" name="q3" value="b"> b) English<br>
+        <input type="radio" name="q3" value="c"> c) Hindi<br>
+        <br>
+        <p>4. Which country has the largest population?</p>
+        <input type="radio" name="q4" value="a"> a) India<br>
+        <input type="radio" name="q4" value="b"> b) China<br>
+        <input type="radio" name="q4" value="c"> c) indonesia<br>
+        <br>
+        <p>5. Which animal is known as the 'Ship of the Desert?</p>
+        <input type="radio" name="q5" value="a"> a) Horse<br>
+        <input type="radio" name="q5" value="b"> b) Tiger<br>
+        <input type="radio" name="q5" value="c"> c) Camel<br>
+        <br>
+     
+     
+        <input type="submit" value="Submit">
+    </form>
+
+    <div id="results"></div>
+
+ 
+    <script>
+        const quizForm = document.getElementById('quiz-form');
+        const resultsDiv = document.getElementById('results');
+
+        quizForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const answers = {
+                q1: quizForm.q1.value,
+                q2: quizForm.q2.value,
+                q3: quizForm.q3.value,
+                q4: quizForm.q4.value,
+                q5: quizForm.q5.value,
+                
+               
+            };
+
+            let score = 0;
+
+            // Check answers
+            if (answers.q1 === 'a') score++;
+            if (answers.q2 === 'a') score++;
+            if (answers.q3 === 'a') score++;
+            if (answers.q4 === 'b') score++;
+            if (answers.q5 === 'c') score++;
+           
+         
+
+            // Display results
+            resultsDiv.innerHTML = `<p>You scored ${score} out of 5.</p>`;
+        });
+    </script>
+</body>
+</html>
